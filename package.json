@@ -1,0 +1,21 @@
+{
+  "name": "deploy_post",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "git": "git add --all && git commit -m",
+    "postgit": "git push --all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnmogi/mongo_train_albums.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnmogi/mongo_train_albums/issues"
+  },
+  "homepage": "https://github.com/johnmogi/mongo_train_albums#readme"
+}

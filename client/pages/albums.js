@@ -2,7 +2,7 @@
 function List({ albums }) {
   return (
     <table>
-      <tr>
+      <tbody>
         {albums.map((album, i) => (
           <tr key={i} id={i}>
             <td>{album.albumName}</td>
@@ -11,7 +11,7 @@ function List({ albums }) {
             <td>{album.date}</td>
           </tr>
         ))}
-      </tr>
+      </tbody>
     </table>
   );
 }
@@ -22,7 +22,7 @@ function List({ albums }) {
 export async function getStaticProps() {
   // Call an external API endpoint to get posts.
   // You can use any data fetching library
-  const res = await fetch("http://localhost:3000/api/albums");
+  const res = await fetch("http://localhost:4000/api/albums");
   const albums = await res.json();
 
   // By returning { props: { albums } }, the Blog component

@@ -9,4 +9,4 @@ server.use(express.json());
 server.use("/api/albums", albumsController);
 server.use("/api/cats", catsController);
 
-server.listen(3000, () => console.log("Listening on http://localhost:3000"));
+server.listen(4000, () => console.log("Listening on http://localhost:4000"));

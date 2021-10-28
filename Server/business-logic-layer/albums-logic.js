@@ -1,5 +1,6 @@
 const dal = require("../data-access-layer/dal");
 const Album = require("../models/album");
+const Category = require("../models/category");
 
 dal
   .connectAsync()
@@ -80,6 +81,14 @@ function getAlbumsByPriceRangeAsync(minPrice, maxPrice) {
   });
 }
 
+function getAlbumsWithCategoryAsync() {
+  return Album.find({}).populate("category").exec();
+}
+
+function getCategoriesWithAlbumsAsync() {
+  return Category.find({}).populate("albums").exec();
+}
+
 module.exports = {
   addAlbumAsync,
   getAllAlbumsAsync,
@@ -87,4 +96,6 @@ module.exports = {
   updateAlbumAsync,
   deleteAlbumAsync,
   getAlbumsByPriceRangeAsync,
+  getAlbumsWithCategoryAsync,
+  getCategoriesWithAlbumsAsync,
 };

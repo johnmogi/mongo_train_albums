@@ -109,4 +109,22 @@ router.get("/by-price-range/:minPrice/:maxPrice", async (request, response) => {
   }
 });
 
+router.get("/join/albums-with-category", async (request, response) => {
+  try {
+    const albums = await albumsLogic.getAlbumsWithCategoryAsync();
+    response.json(albums);
+  } catch (err) {
+    response.status(500).send(err.message);
+  }
+});
+
+router.get("/join/categories-with-albums", async (request, response) => {
+  try {
+    const categories = await albumsLogic.getCategoriesWithAlbumsAsync();
+    response.json(categories);
+  } catch (err) {
+    response.status(500).send(err.message);
+  }
+});
+
 module.exports = router;

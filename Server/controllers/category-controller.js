@@ -1,24 +1,24 @@
 const express = require("express");
-const categorysLogic = require("../business-logic-layer/category-logic");
+const catsLogic = require("../business-logic-layer/category-logic");
 const Category = require("../models/category");
 const router = express.Router();
 
-// GET http://localhost:3000/api/categorys
+// GET http://localhost:3000/api/cats
 router.get("/", async (request, response) => {
   try {
-    const categorys = await categorysLogic.getAllCategorysAsync();
-    response.json(categorys);
+    const cats = await catsLogic.getAllCatsAsync();
+    response.json(cats);
   } catch (err) {
     console.log(err);
     response.status(500).send(err.message);
   }
 });
 
-// GET http://localhost:3000/api/categorys/7
+// GET http://localhost:3000/api/cats/7
 router.get("/:_id", async (request, response) => {
   try {
     const _id = request.params._id;
-    const category = await categorysLogic.getOneCategoryAsync(_id);
+    const category = await catsLogic.getOneCategoryAsync(_id);
 
     if (!category) {
       response.sendStatus(404);
@@ -31,26 +31,26 @@ router.get("/:_id", async (request, response) => {
   }
 });
 
-// POST http://localhost:3000/api/categorys
+// POST http://localhost:3000/api/cats
 router.post("/", async (request, response) => {
   const body = request.body;
   try {
     console.log(body);
     const category = new Category(body);
-    const addedCategory = await categorysLogic.addCategoryAsync(category);
+    const addedCategory = await catsLogic.addCategoryAsync(category);
     response.status(201).json(addedCategory);
   } catch (err) {
     response.status(500).send(err.message);
   }
 });
 
-// PUT http://localhost:3000/api/categorys/7
+// PUT http://localhost:3000/api/cats/7
 router.put("/:_id", async (request, response) => {
   try {
     const _id = request.params._id;
     const category = new Category(request.body);
     category._id = _id;
-    const updatedCategory = await categorysLogic.updateCategoryAsync(category);
+    const updatedCategory = await catsLogic.updateCategoryAsync(category);
 
     if (updatedCategory === null) {
       response.sendStatus(404);
@@ -63,13 +63,13 @@ router.put("/:_id", async (request, response) => {
   }
 });
 
-// PATCH http://localhost:3000/api/categorys/7
+// PATCH http://localhost:3000/api/cats/7
 router.patch("/:_id", async (request, response) => {
   try {
     const _id = request.params._id;
     const category = new Category(request.body);
     category._id = _id;
-    const updatedCategory = await categorysLogic.updateCategoryAsync(category);
+    const updatedCategory = await catsLogic.updateCategoryAsync(category);
 
     if (updatedCategory === null) {
       response.sendStatus(404);
@@ -82,11 +82,11 @@ router.patch("/:_id", async (request, response) => {
   }
 });
 
-// DELETE http://localhost:3000/api/categorys/7
+// DELETE http://localhost:3000/api/cats/7
 router.delete("/:_id", async (request, response) => {
   try {
     const _id = request.params._id;
-    await categorysLogic.deleteCategoryAsync(_id);
+    await catsLogic.deleteCategoryAsync(_id);
     response.sendStatus(204);
   } catch (err) {
     response.status(500).send(err.message);
@@ -99,11 +99,8 @@ router.get("/by-price-range/:minPrice/:maxPrice", async (request, response) => {
   try {
     const minPrice = +request.params.minPrice;
     const maxPrice = +request.params.maxPrice;
-    const categorys = await categorysLogic.getCategorysByPriceRangeAsync(
-      minPrice,
-      maxPrice
-    );
-    response.json(categorys);
+    const cats = await catsLogic.getCatsByPriceRangeAsync(minPrice, maxPrice);
+    response.json(cats);
   } catch (err) {
     response.status(500).send(err.message);
   }

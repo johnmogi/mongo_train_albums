@@ -1,11 +1,6 @@
 const dal = require("../data-access-layer/dal");
 const Category = require("../models/category");
 
-dal
-  .connectAsync()
-  .then((db) => console.log("We're connected to musicAlbums on MongoDB."))
-  .catch((err) => console.log(err));
-
 function addCategoryAsync(category) {
   return category.save();
 }

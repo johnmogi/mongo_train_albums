@@ -19,10 +19,20 @@ date
 category
 
  {
-    "albumName": "String",
-    "albumImage": "String",
-    "artist": "String",
-    "date": "String"
+    "albumName": "Jar of flies",
+    "albumImage": "jof.jpg",
+    "artist": "Alice In Chaines",
+    "date": "15-08-1997",
+    "categoryId":"617a421b8bdd2e8504c14d11"
  }
-
-
+ {
+    "albumName": "nevermind",
+    "albumImage": "nvm.jpg",
+    "artist": "Nirvana",
+    "date": "15-08-2000",
+    "categoryId":"617a421b8bdd2e8504c14d11"
+ }
+{
+    "name":"rock",
+    "description":"best music"
+}

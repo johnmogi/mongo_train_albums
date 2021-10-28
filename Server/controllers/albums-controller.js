@@ -35,7 +35,6 @@ router.get("/:_id", async (request, response) => {
 router.post("/", async (request, response) => {
   const body = request.body;
   try {
-    console.log(body);
     const album = new Album(body);
     const addedAlbum = await albumsLogic.addAlbumAsync(album);
     response.status(201).json(addedAlbum);
@@ -109,6 +108,7 @@ router.get("/by-price-range/:minPrice/:maxPrice", async (request, response) => {
   }
 });
 
+// http://localhost:3000/api/albums/join/albums-with-category
 router.get("/join/albums-with-category", async (request, response) => {
   try {
     const albums = await albumsLogic.getAlbumsWithCategoryAsync();
@@ -119,6 +119,7 @@ router.get("/join/albums-with-category", async (request, response) => {
 });
 
 router.get("/join/categories-with-albums", async (request, response) => {
+  console.log("k");
   try {
     const categories = await albumsLogic.getCategoriesWithAlbumsAsync();
     response.json(categories);

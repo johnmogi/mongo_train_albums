@@ -35,7 +35,6 @@ router.get("/:_id", async (request, response) => {
 router.post("/", async (request, response) => {
   const body = request.body;
   try {
-    console.log(body);
     const category = new Category(body);
     const addedCategory = await catsLogic.addCategoryAsync(category);
     response.status(201).json(addedCategory);
@@ -65,8 +64,9 @@ router.put("/:_id", async (request, response) => {
 
 // PATCH http://localhost:3000/api/cats/7
 router.patch("/:_id", async (request, response) => {
+  const _id = request.params._id;
   try {
-    const _id = request.params._id;
+    console.log(_id);
     const category = new Category(request.body);
     category._id = _id;
     const updatedCategory = await catsLogic.updateCategoryAsync(category);

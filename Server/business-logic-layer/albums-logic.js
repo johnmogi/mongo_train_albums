@@ -85,6 +85,9 @@ function getAlbumsWithCategoryAsync() {
   return Album.find({}).populate("category").exec();
 }
 
+function getAlbumsFromCategoryAsync(id) {
+  return Album.find({ categoryId: id }).populate("category").exec();
+}
 function getCategoriesWithAlbumsAsync() {
   return Category.find({}).populate("albums").exec();
 }
@@ -96,6 +99,7 @@ module.exports = {
   updateAlbumAsync,
   deleteAlbumAsync,
   getAlbumsByPriceRangeAsync,
+  getAlbumsFromCategoryAsync,
   getAlbumsWithCategoryAsync,
   getCategoriesWithAlbumsAsync,
 };

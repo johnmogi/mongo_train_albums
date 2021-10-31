@@ -108,6 +108,17 @@ router.get("/by-price-range/:minPrice/:maxPrice", async (request, response) => {
   }
 });
 
+// http://localhost:3000/api/albums/cat/id
+router.get("/cat/:_id", async (request, response) => {
+  const id = request.params._id;
+  try {
+    const albums = await albumsLogic.getAlbumsFromCategoryAsync(id);
+    response.json(albums);
+  } catch (err) {
+    response.status(500).send(err.message);
+  }
+});
+
 // http://localhost:3000/api/albums/join/albums-with-category
 router.get("/join/albums-with-category", async (request, response) => {
   try {
@@ -119,7 +130,6 @@ router.get("/join/albums-with-category", async (request, response) => {
 });
 
 router.get("/join/categories-with-albums", async (request, response) => {
-  console.log("k");
   try {
     const categories = await albumsLogic.getCategoriesWithAlbumsAsync();
     response.json(categories);

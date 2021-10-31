@@ -1,30 +1,39 @@
 {
-  "name": "Client",
-  "version": "1.0.0",
+  "name": "client",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "test": "jest"
-  },
   "dependencies": {
-    "@nuxt/content": "^1.14.0",
-    "@nuxtjs/axios": "^5.13.6",
-    "@nuxtjs/pwa": "^3.3.5",
-    "core-js": "^3.15.1",
-    "nuxt": "^2.15.7"
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.24.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.0.1"
   },
-  "devDependencies": {
-    "@nuxtjs/tailwindcss": "^4.2.0",
-    "@vue/test-utils": "^1.2.1",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^27.0.5",
-    "eslint-config-prettier": "^8.3.0",
-    "jest": "^27.0.5",
-    "postcss": "^8.3.5",
-    "prettier": "^2.3.2",
-    "vue-jest": "^3.0.4"
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

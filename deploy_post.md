@@ -36,3 +36,6 @@ category
     "name":"rock",
     "description":"best music"
 }
+
+
+sudo mongorestore --db musicAlbums --drop /var/www/dep/Server/database

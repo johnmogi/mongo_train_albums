@@ -6,7 +6,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       // const result = await axios("https://demo.johnmogi/api/albums");
-      const res = await fetch("https://demo.johnmogi/api/albums");
+      const res = await fetch("https://demo.johnmogi.com/api/albums");
       const json = await res.json();
       setData(json);
     };

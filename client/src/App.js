@@ -5,8 +5,8 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
-      // const result = await axios("http://localhost:4000/api/albums");
-      const res = await fetch("http://localhost:4000/api/albums");
+      // const result = await axios("https://demo.johnmogi/api/albums");
+      const res = await fetch("https://demo.johnmogi/api/albums");
       const json = await res.json();
       setData(json);
     };
